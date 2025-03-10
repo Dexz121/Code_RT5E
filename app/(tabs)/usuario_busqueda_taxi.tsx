@@ -1,30 +1,24 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import "../../global.css";
 
 const UsuarioSeleccionDestino = () => {
   return (
     <View className="flex-1 bg-white rounded-3xl overflow-hidden">
-      {/* Barra Superior */}
-      <View className="w-full h-40 bg-green-600 flex justify-center items-center">
-        <Text className="text-white text-2xl font-bold">SELECCIONA TU DESTINO</Text>
+      {/* Encabezado */}
+      <View className="w-full h-40 bg-yellow-500 flex justify-center items-center">
+        <Text className="text-white text-2xl font-bold">BUSCANDO</Text>
       </View>
 
-      {/* Ícono de Perfil */}
+      {/* Foto de perfil */}
       <View className="absolute top-10 right-6">
         <Image source={require('../../assets/images/profile.svg')} className="w-24 h-24 rounded-full" />
       </View>
 
 
-      {/* Información de precio y pago */}
-      <View className="absolute bottom-24 left-10">
-        <Text className="text-black text-2xl font-normal">$48</Text>
-      </View>
-      <View className="absolute bottom-16 left-10">
-        <Text className="text-black text-2xl font-normal">EFECTIVO</Text>
-      </View>
 
       {/* Línea separadora */}
-      <View className="border-t border-gray-300 absolute bottom-20 left-10 w-80" />
+      <View className="border-t border-gray-300 absolute bottom-28 left-10 w-80" />
 
       {/* Botón de Solicitar */}
       <TouchableOpacity className="bg-yellow-500 rounded-xl mt-6 py-3 mx-6 absolute bottom-10 w-80 self-center">
