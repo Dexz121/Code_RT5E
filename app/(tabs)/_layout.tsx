@@ -12,7 +12,7 @@ export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
+        <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
@@ -20,7 +20,6 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
           default: {},
@@ -40,6 +39,31 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="usuario_menu"
+        options={{ title: "Usuario Menusss" }}
+      />
+      <Tabs.Screen
+        name="usuario_seleccion_destino"
+        options={{ title: "Seleccion Destino" }}
+      />
+      <Tabs.Screen
+        name="usuario_busqueda_taxi"
+        options={{ title: "Busqueda Taxi" }}
+      />
+      <Tabs.Screen
+        name="conductor_botones_inicio"
+        options={{ title: "Conductor Inicio" }}
+      />
+      <Tabs.Screen
+        name="conductor_conectado"
+        options={{ title: "Conductor Conectado" }}
+      />
+      <Tabs.Screen
+        name="conductor_menu"
+        options={{ title: "Conductor Menu" }}
+      />
     </Tabs>
+
   );
 }
