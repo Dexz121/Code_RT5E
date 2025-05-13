@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useRouter } from 'expo-router';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
+import BotonPanico from '../components/BotonPanico';
 
 
 
@@ -46,6 +47,22 @@ const UsuarioMenu = () => {
     <Image source={require('../../assets/images/Package.png')} className="w-20 h-20" />
     <Text className="text-black font-semibold mt-2 text-center">Enviar paquetería</Text>
   </TouchableOpacity>
+
+  <TouchableOpacity
+    className="w-40 h-40 bg-[#EEEEEE] rounded-xl shadow-md flex justify-center items-center"
+    onPress={() => router.push({ pathname: '/usuario_seleccion_destino', params: { tipo: 'paqueteria' } })}
+  >
+    <Image source={require('../../assets/images/Package.png')} className="w-20 h-20" />
+    <Text className="text-black font-semibold mt-2 text-center">Datos de usuario</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    className="w-40 h-40 bg-[#EEEEEE] rounded-xl shadow-md flex justify-center items-center"
+    onPress={() => router.push({ pathname: '/usuario_seleccion_destino', params: { tipo: 'paqueteria' } })}
+  >
+    <Image source={require('../../assets/images/Package.png')} className="w-20 h-20" />
+    <Text className="text-black font-semibold mt-2 text-center">Ganancias</Text>
+  </TouchableOpacity>
 </View>
 
       {/* Accesos rápidos - Administración */}
@@ -74,11 +91,29 @@ const UsuarioMenu = () => {
 
       {/* Historial de viajes */}
       <Text className="text-black text-xl font-semibold mt-12 ml-8">Historial de viajes</Text>
-<View className="mt-4 px-8">
-  {viajes.length === 0 ? (
-    <Text className="text-gray-400">No hay viajes registrados aún.</Text>
-  ) : (
-    viajes.map((item) => {
+      {/*<View className="mt-4 px-8">
+        {viajes.length === 0 ? (
+          <Text className="text-gray-400">No hay viajes registrados aún.</Text>
+        ) : (
+          viajes.map((item) => {
+            const fechaInicio = item.fecha_inicio_viaje?.toDate?.().toLocaleString?.() || 'Sin inicio';
+            const fechaFin = item.fecha_finalizacion_viaje?.toDate?.().toLocaleString?.() || 'Sin fin';
+
+            return (
+              <View key={item.id} className="flex-row items-center py-2 border-b border-gray-300">
+                <View className="w-10 h-10 bg-gray-200 rounded-full flex justify-center items-center">
+                  <Image source={require('../../assets/images/Car.png')} className="w-6 h-6" />
+                </View>
+                <View className="ml-4">
+                  <Text className="text-black text-lg font-semibold capitalize">{item.estado}</Text>
+                  <Text className="text-gray-500 text-sm">{fechaInicio} → {fechaFin}</Text>
+                </View>
+              </View>
+            );
+          })
+        )}
+      </View>*/}
+      {viajes.slice(0, 3).map((item) => {
       const fechaInicio = item.fecha_inicio_viaje?.toDate?.().toLocaleString?.() || 'Sin inicio';
       const fechaFin = item.fecha_finalizacion_viaje?.toDate?.().toLocaleString?.() || 'Sin fin';
 
@@ -92,10 +127,11 @@ const UsuarioMenu = () => {
             <Text className="text-gray-500 text-sm">{fechaInicio} → {fechaFin}</Text>
           </View>
         </View>
-      );
-    })
-  )}
-</View>
+        );
+      })}
+      <View className="flex-1 justify-center items-center bg-white">
+        <BotonPanico />
+      </View>
 
 
     </View>
