@@ -15,7 +15,7 @@ const IndexScreen = () => {
         { label: "Busqueda Taxi", route: "/(tabs)/usuario_busqueda_taxi" },
         { label: "Conductor Inicio", route: "/(tabs)/conductor_botones_inicio" },
         { label: "Conductor Conectado", route: "/(tabs)/conductor_conectado" },
-        { label: "Conductor Menu", route: "/(tabs)/conductor_menu" },
+        { label: "Flow Menu", route: "/flow_viaje" },
       ].map(({ label, route }) => (
         <TouchableOpacity
           key={route}
